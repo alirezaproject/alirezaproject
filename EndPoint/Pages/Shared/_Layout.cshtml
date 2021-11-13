@@ -1,0 +1,44 @@
+﻿
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <!-- Meta -->
+    <partial name="Partials/_MetaTags" />
+
+    <!-- Title -->
+    <title>سایت شخصی علی رضا شکوهیان</title>
+
+    <!-- CSS Plugins -->
+    <partial name="Partials/_Styles" />
+
+    <!-- Icon and Color -->
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+
+</head>
+
+<body>
+
+
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loading-area">
+            <div class="circle"></div>
+        </div>
+        <div class="left-side"></div>
+        <div class="right-side"></div>
+    </div>
+
+    <!-- Main Site -->
+    @RenderBody()
+
+    <!-- All Script -->
+   <partial name="Partials/_Scripts"/>
+
+
+</body>
+
+</html>
