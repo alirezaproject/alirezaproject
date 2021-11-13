@@ -1,0 +1,12 @@
+G:\Projects\.Net Core\AlirezaProject\Core\bin\Debug\net5.0\Core.deps.json
+G:\Projects\.Net Core\AlirezaProject\Core\bin\Debug\net5.0\Core.dll
+G:\Projects\.Net Core\AlirezaProject\Core\bin\Debug\net5.0\ref\Core.dll
+G:\Projects\.Net Core\AlirezaProject\Core\bin\Debug\net5.0\Core.pdb
+G:\Projects\.Net Core\AlirezaProject\Core\obj\Debug\net5.0\Core.csproj.AssemblyReference.cache
+G:\Projects\.Net Core\AlirezaProject\Core\obj\Debug\net5.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+G:\Projects\.Net Core\AlirezaProject\Core\obj\Debug\net5.0\Core.AssemblyInfoInputs.cache
+G:\Projects\.Net Core\AlirezaProject\Core\obj\Debug\net5.0\Core.AssemblyInfo.cs
+G:\Projects\.Net Core\AlirezaProject\Core\obj\Debug\net5.0\Core.csproj.CoreCompileInputs.cache
+G:\Projects\.Net Core\AlirezaProject\Core\obj\Debug\net5.0\Core.dll
+G:\Projects\.Net Core\AlirezaProject\Core\obj\Debug\net5.0\ref\Core.dll
+G:\Projects\.Net Core\AlirezaProject\Core\obj\Debug\net5.0\Core.pdb
