@@ -356,3 +356,7 @@ G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\EndPoint.dll
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\ref\EndPoint.dll
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\EndPoint.pdb
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\EndPoint.genruntimeconfig.cache
+G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Pages\Shared\Components\AboutSection\AboutSection.cshtml.g.cs
+G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Pages\Shared\Components\ContactSection\ContactSection.cshtml.g.cs
+G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Pages\Shared\Components\HomeSection\HomeSection.cshtml.g.cs
+G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Pages\Shared\Components\ResumeSection\ResumeSection.cshtml.g.cs
