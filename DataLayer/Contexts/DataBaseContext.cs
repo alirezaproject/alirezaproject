@@ -78,7 +78,7 @@ namespace DataLayer.Contexts
             }
 
             
-
+            DataBaseSeeds.SeedUsers(builder);
             base.OnModelCreating(builder);
             
 

@@ -1,4 +1,139 @@
 ﻿@page
 @model EndPoint.Areas.Admin.Pages.IndexModel
 @{
+  ViewData["Title"] ="داشبورد";
 }
+
+@section Scripts
+{
+    <script src="/AdminAssets/js/scripts/charts/chart-apex.js"></script>
+}
+
+<div class="app-content content">
+      <div class="content-overlay"></div>
+      <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+<section id="widgets-Statistics">
+  <div class="row">
+    <div class="col-12 mt-1 mb-2">
+      <h4>آمار</h4>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-2 col-md-4 col-sm-6">
+      <div class="card text-center">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="badge-circle badge-circle-lg badge-circle-light-info mx-auto my-1">
+              <i class="bx bx-edit-alt font-medium-5"></i>
+            </div>
+            <p class="text-muted mb-0 line-ellipsis">پست های جدید</p>
+            <h2 class="mb-0 primary-font">48</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-md-4 col-sm-6">
+      <div class="card text-center">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="badge-circle badge-circle-lg badge-circle-light-warning mx-auto my-1">
+              <i class="bx bx-file font-medium-5"></i>
+            </div>
+            <p class="text-muted mb-0 line-ellipsis">فایل های ضمیمه شده</p>
+            <h2 class="mb-0 primary-font">17</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-md-4 col-sm-6">
+      <div class="card text-center">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="badge-circle badge-circle-lg badge-circle-light-danger mx-auto my-1">
+              <i class="bx bx-message font-medium-5"></i>
+            </div>
+            <p class="text-muted mb-0 line-ellipsis">دیدگاه‌ها</p>
+            <h2 class="mb-0 primary-font">29</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-md-4 col-sm-6">
+      <div class="card text-center">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="badge-circle badge-circle-lg badge-circle-light-primary mx-auto my-1">
+              <i class="bx bx-money font-medium-5"></i>
+            </div>
+            <p class="text-muted mb-0 line-ellipsis">فروش‌ها</p>
+            <h2 class="mb-0 primary-font">72</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-md-4 col-sm-6">
+      <div class="card text-center">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="badge-circle badge-circle-lg badge-circle-light-success mx-auto my-1">
+              <i class="bx bx-purchase-tag font-medium-5"></i>
+            </div>
+            <p class="text-muted mb-0 line-ellipsis">خرید</p>
+            <h2 class="mb-0 primary-font">65</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-2 col-md-4 col-sm-6">
+      <div class="card text-center">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="badge-circle badge-circle-lg badge-circle-light-danger mx-auto my-1">
+              <i class="bx bx-shopping-bag font-medium-5"></i>
+            </div>
+            <p class="text-muted mb-0 line-ellipsis">سفارش</p>
+            <h2 class="mb-0 primary-font">40</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="apexchart">
+  <div class="row">
+    <!-- Line Chart -->
+    <div class="col-lg-6 col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">نمودار خطی</h4>
+            </div>
+            <div class="card-content">
+                <div class="card-body">
+                    <div id="line-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">نمودار خطی</h4>
+            </div>
+            <div class="card-content">
+                <div class="card-body">
+                    <div id="line-chart2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  
+</section>
+
+        </div>
+      </div>
+    </div>

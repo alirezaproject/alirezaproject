@@ -319,6 +319,14 @@
         "runtime": {
           "EndPoint.dll": {}
         },
+        "resources": {
+          "en-US/EndPoint.resources.dll": {
+            "locale": "en-US"
+          },
+          "fa-IR/EndPoint.resources.dll": {
+            "locale": "fa-IR"
+          }
+        },
         "compile": {
           "EndPoint.dll": {}
         }

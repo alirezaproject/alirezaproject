@@ -1,4 +1,6 @@
-﻿<div class="pt-home" style="background-image: url('img/home-bg.jpg')">
+﻿@using System.Globalization
+
+<div class="pt-home" style="background-image: url('img/home-bg.jpg')">
     <section>
 
         <!-- Banner -->
@@ -17,8 +19,8 @@
         <!-- Language -->
         <div class="lang">
             <ul>
-                <li><a href="#" class="active">فارسی</a></li>
-                <li><a href="#">انگلیسی</a></li>
+                <li><a asp-page-handler="ChangeCulture" asp-route-culture="fa-IR" class="@(CultureInfo.CurrentCulture.Name == "fa-IR" ? "active" : "")">فارسی</a></li>
+                <li><a asp-page-handler="ChangeCulture" asp-route-culture="en-US" class="@(CultureInfo.CurrentCulture.Name == "en-US" ? "active" : "")">English</a></li>
             </ul>
         </div>
 

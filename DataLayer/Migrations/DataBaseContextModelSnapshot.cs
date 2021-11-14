@@ -125,6 +125,27 @@ namespace DataLayer.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "2d23a60e-3dbf-45e6-800b-62fd0df88d43",
+                            Email = "shekoohianproject@gmail.com",
+                            EmailConfirmed = true,
+                            InsertTime = new DateTime(2021, 11, 14, 20, 4, 35, 882, DateTimeKind.Local).AddTicks(9140),
+                            IsRemoved = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SHEKOOHIANPROJECT@GMAIL.COM",
+                            NormalizedUserName = "SHEKOOHIANPROJECT@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKifuQ2lhdhGxl0KCuIdzUe7zmk4GEt1HgdIStlzjwxY9BCshNSj4rUMZbGlICz94A==",
+                            PhoneNumber = "09172638641",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "02a6e0cb-cfae-4fe7-8f21-11cbed577b5b",
+                            TwoFactorEnabled = false,
+                            UserName = "shekoohianproject@gmail.com"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

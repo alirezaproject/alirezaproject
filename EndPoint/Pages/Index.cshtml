@@ -1,6 +1,7 @@
 ﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
 @model IndexModel
-
+@inject IViewLocalizer _localizer
 
 <div id="home">
     <div id="about">
@@ -11,7 +12,7 @@
 
                         <div class="header-mobile">
                             <a class="header-toggle"><i class="fas fa-bars"></i></a>
-                            <h2>باها</h2>
+                            <h2>@_localizer["MyName"]</h2>
                         </div>
 
                         <!-- Left Block -->
@@ -23,19 +24,19 @@
                             </div>
 
                             <ul>
-                                <li data-tooltip="خانه" data-position="top">
+                                <li data-tooltip="@_localizer["Home"]" data-position="top">
                                     <a href="#home" class="icon-h fas fa-house-damage"></a>
                                 </li>
-                                <li data-tooltip="درباره" data-position="top">
+                                <li data-tooltip="@_localizer["About"]" data-position="top">
                                     <a href="#about" class="icon-a fas fa-user-tie"></a>
                                 </li>
-                                <li data-tooltip="مهارت ها" data-position="top">
+                                <li data-tooltip="@_localizer["Skills"]" data-position="top">
                                     <a href="#resume" class="icon-b fas fa-receipt"></a>
                                 </li>
-                                <li data-tooltip="نمونه‌کارها" data-position="top">
+                                <li data-tooltip="@_localizer["Portfolio"]" data-position="top">
                                     <a href="#portfolio" class="icon-p fas fa-clone"></a>
                                 </li>
-                                <li data-tooltip="تماس" data-position="bottom">
+                                <li data-tooltip="@_localizer["Contact"]" data-position="bottom">
                                     <a href="#contact" class="icon-c fas fa-envelope"></a>
                                 </li>
                             </ul>
@@ -50,7 +51,7 @@
                                     <span></span>
                                     <span></span>
                                 </div>
-                                <p> صدا </p>
+                                <p> @_localizer["Sound"] </p>
                             </a>
                         </nav>
 
