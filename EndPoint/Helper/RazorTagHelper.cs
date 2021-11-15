@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.AspNetCore.Routing;
 
-namespace WebSite.EndPoint.Helpers.TagHelpers
+namespace EndPoint.Helper
 {
     // You may need to install the Microsoft.AspNetCore.Razor.Runtime package into your project
     [HtmlTargetElement(Attributes = RouteAttributeName)]

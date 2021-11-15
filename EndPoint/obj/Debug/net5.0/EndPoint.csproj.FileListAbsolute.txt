@@ -19,7 +19,6 @@ G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\staticwebassets\E
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\EndPoint.TagHelpers.input.cache
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\EndPoint.TagHelpers.output.cache
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\EndPoint.RazorCoreGenerate.cache
-G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Account\Forgot-Password.cshtml.g.cs
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Dashboard\Index.cshtml.g.cs
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Index.cshtml.g.cs
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Shared\Partials\_Scripts.cshtml.g.cs
@@ -461,3 +460,6 @@ G:\Projects\.Net Core\AlirezaProject\EndPoint\bin\Debug\net5.0\Core.pdb
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\EndPoint.Views.pdb
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\EndPoint.csproj.CopyComplete
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\EndPoint.genruntimeconfig.cache
+G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Social\Index.cshtml.g.cs
+G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Pages\ForgotPassword.cshtml.g.cs
+G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Pages\ResetPassword.cshtml.g.cs

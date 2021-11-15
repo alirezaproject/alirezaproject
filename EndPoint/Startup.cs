@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using Core.Services.Impelimentations;
 using Core.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +35,7 @@ namespace EndPoint
         {
             services.AddRazorPages();
             services.AddTransient<IDataBaseContext, DataBaseContext>();
+            services.AddTransient<IEmailService, EmailService>();
 
             #region Database
             services.AddDbContext<DataBaseContext>(options =>

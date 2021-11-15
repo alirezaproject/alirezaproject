@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
 using DataLayer.Entities.User;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace DataLayer.Contexts
+namespace DataLayer
 {
     public static class DataBaseSeeds
     {
