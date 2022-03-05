@@ -3,9 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.DTOs.Site;
 using Core.DTOs.Site.Title;
+using Core.DTOs.Title;
 using Core.Services.Interfaces;
 using DataLayer.Contexts;
 using DataLayer.Entities.SiteAgg;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Core.Services.Impelimentations
@@ -29,11 +31,28 @@ namespace Core.Services.Impelimentations
         }
 
 
-        public async Task<HomeDto> GetHomeData()
+        public async Task<HomeDto> GetHomeData(string culture)
         {
             return new HomeDto()
             {
-                SocialMedias = await _context.SocialMedia.ToListAsync()
+                SocialMedias = await _context.SocialMedia.ToListAsync(),
+                Site = await _context.Sites.Include(x => x.Language).Where(x => x.Language.LangName == culture).Select(
+                    s => new SiteDto()
+                    {
+                        BackgroundImageAddress = s.BackgroundAddress,
+                        Lanugage = s.Language.LangName,
+                        LogoAddress = s.LogoAddress,
+                        SiteId = s.SiteId,
+                        SongAdress = s.SongAddress,
+                        Title = s.Title
+                    }).FirstOrDefaultAsync(),
+                Titles = await _context.Titles.Include(x => x.Language).Where(x => x.Language.LangName == culture)
+                    .Select(s => new TitleDto()
+                    {
+                        Language = s.Language.LangName,
+                        Name = s.Name,
+                        TitleId = s.TitleId
+                    }).ToListAsync(),
             };
         }
 
@@ -58,6 +77,52 @@ namespace Core.Services.Impelimentations
                 Name = s.Name,
                 TitleId = s.TitleId
             }).ToListAsync();
+        }
+
+        public async Task CreateTitle(CreateTitleDto command)
+        {
+            var title = new Title(command.Name, command.LanguageId);
+            await _context.Titles.AddAsync(title);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<SelectListItem>> GetLanguages()
+        {
+            return await _context.Languages.Select(s => new SelectListItem()
+            {
+                Text = s.LangName,
+                Value = s.LanguageId.ToString()
+            }).ToListAsync();
+        }
+
+        public async Task<EditTitleDto> GetTitleDetails(long titleId)
+        {
+            return await _context.Titles
+                .Where(x => x.TitleId == titleId)
+                .Select(s => new EditTitleDto()
+                {
+                    LanguageId = s.LanguageId,
+                    Name = s.Name,
+                    TitleId = s.TitleId
+                })
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task EditTitle(EditTitleDto command)
+        {
+            var title = await _context.Titles.FindAsync(command.TitleId);
+
+            title.Edit(command.Name,command.LanguageId);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<MainDto> GetMainData(string culture)
+        {
+            return await _context.Sites.Include(x => x.Language).Where(x => x.Language.LangName == culture).Select(s => new MainDto()
+            {
+                Logo = s.LogoAddress,
+                Sound = s.SongAddress
+            }).FirstOrDefaultAsync();
         }
     }
 }

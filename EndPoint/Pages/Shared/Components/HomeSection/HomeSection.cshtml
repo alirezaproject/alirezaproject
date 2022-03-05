@@ -1,17 +1,19 @@
 ﻿@using System.Globalization
 @model Core.DTOs.Site.HomeDto
-<div class="pt-home" style="background-image: url('/img/home-bg.jpg')">
+<div class="pt-home" style="background-image: url('@Model.Site.BackgroundImageAddress')">
     <section>
 
         <!-- Banner -->
         <div class="banner">
-            <h1>جان اسنو</h1>
+            <h1>@Model.Site.Title</h1>
             <p class="cd-headline rotate-1">
                 <span class="cd-words-wrapper">
-                    <b class="is-visible">توسعه دهنده</b>
-                    <b>عکاس حرفه ای</b>
-                    <b>طراح</b>
-                    <b>فریلنسر</b>
+                    @foreach (var item in Model.Titles)
+                    {
+                        <b class="@(item == Model.Titles.FirstOrDefault() ? "is-visible" : "")">@item.Name</b>
+                    }
+                    
+                    
                 </span>
             </p>
         </div>

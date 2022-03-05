@@ -53,6 +53,19 @@ namespace DataLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Languages",
+                columns: table => new
+                {
+                    LanguageId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LangName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Languages", x => x.LanguageId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SocialMedia",
                 columns: table => new
                 {
@@ -171,10 +184,75 @@ namespace DataLayer.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Sites",
+                columns: table => new
+                {
+                    SiteId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LogoAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SongAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BackgroundAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LanguageId = table.Column<int>(type: "int", nullable: false),
+                    InsertTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsRemoved = table.Column<bool>(type: "bit", nullable: false),
+                    RemoveTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sites", x => x.SiteId);
+                    table.ForeignKey(
+                        name: "FK_Sites_Languages_LanguageId",
+                        column: x => x.LanguageId,
+                        principalTable: "Languages",
+                        principalColumn: "LanguageId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Titles",
+                columns: table => new
+                {
+                    TitleId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LanguageId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Titles", x => x.TitleId);
+                    table.ForeignKey(
+                        name: "FK_Titles_Languages_LanguageId",
+                        column: x => x.LanguageId,
+                        principalTable: "Languages",
+                        principalColumn: "LanguageId");
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "InsertTime", "IsRemoved", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RemoveTime", "SecurityStamp", "TwoFactorEnabled", "UpdateTime", "UserName" },
-                values: new object[] { 1, 0, "b2033394-62ed-4e25-a048-56f28f0c6cb5", "shekoohianproject@gmail.com", true, new DateTime(2022, 2, 20, 22, 30, 13, 330, DateTimeKind.Local).AddTicks(706), false, false, null, "SHEKOOHIANPROJECT@GMAIL.COM", "SHEKOOHIANPROJECT@GMAIL.COM", "AQAAAAEAACcQAAAAECT0/J0gDq+QMd+1xJVPcYO6c2qiANOB0Z6/mq6BbMwx6oXv+96iyhJEgQDkn2qgxw==", "09172638641", true, null, "16450ec7-5211-40d8-b6e9-52c35e96629a", false, null, "shekoohianproject@gmail.com" });
+                values: new object[] { 1, 0, "d845c666-5511-48be-a887-4d93cf76b768", "shekoohianproject@gmail.com", true, new DateTime(2022, 3, 5, 10, 25, 20, 803, DateTimeKind.Local).AddTicks(7327), false, false, null, "SHEKOOHIANPROJECT@GMAIL.COM", "SHEKOOHIANPROJECT@GMAIL.COM", "AQAAAAEAACcQAAAAEAqj18WyA36NBD6pq9VvxLn64pGobR8+nwWRCaDw0kOw2Wp3hoSEUVCYORTjfCrQnA==", "09172638641", true, null, "fb3f9970-a6bc-4892-a7b9-65830c386d78", false, null, "shekoohianproject@gmail.com" });
+
+            migrationBuilder.InsertData(
+                table: "Languages",
+                columns: new[] { "LanguageId", "LangName" },
+                values: new object[] { 2, "en-US" });
+
+            migrationBuilder.InsertData(
+                table: "Languages",
+                columns: new[] { "LanguageId", "LangName" },
+                values: new object[] { 1, "fa-IR" });
+
+            migrationBuilder.InsertData(
+                table: "Sites",
+                columns: new[] { "SiteId", "BackgroundAddress", "InsertTime", "IsRemoved", "LanguageId", "LogoAddress", "RemoveTime", "SongAddress", "Title", "UpdateTime" },
+                values: new object[] { 1, "/img/home-bg.jpg", new DateTime(2022, 3, 5, 10, 25, 20, 798, DateTimeKind.Local).AddTicks(9205), false, 1, "/logo/logo.jpg", null, "/audio/music.mp3", "علی رضا شکوهیان", null });
+
+            migrationBuilder.InsertData(
+                table: "Sites",
+                columns: new[] { "SiteId", "BackgroundAddress", "InsertTime", "IsRemoved", "LanguageId", "LogoAddress", "RemoveTime", "SongAddress", "Title", "UpdateTime" },
+                values: new object[] { 2, "/img/home-bg.jpg", new DateTime(2022, 3, 5, 10, 25, 20, 801, DateTimeKind.Local).AddTicks(8014), false, 2, "/logo/logo.jpg", null, "/audio/music.mp3", "alireza shokouhian", null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -214,6 +292,16 @@ namespace DataLayer.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Sites_LanguageId",
+                table: "Sites",
+                column: "LanguageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Titles_LanguageId",
+                table: "Titles",
+                column: "LanguageId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -234,13 +322,22 @@ namespace DataLayer.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Sites");
+
+            migrationBuilder.DropTable(
                 name: "SocialMedia");
+
+            migrationBuilder.DropTable(
+                name: "Titles");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Languages");
         }
     }
 }

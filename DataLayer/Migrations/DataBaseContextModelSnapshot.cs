@@ -91,7 +91,7 @@ namespace DataLayer.Migrations
                         {
                             SiteId = 1,
                             BackgroundAddress = "/img/home-bg.jpg",
-                            InsertTime = new DateTime(2022, 2, 22, 23, 5, 39, 185, DateTimeKind.Local).AddTicks(6935),
+                            InsertTime = new DateTime(2022, 3, 5, 10, 25, 20, 798, DateTimeKind.Local).AddTicks(9205),
                             IsRemoved = false,
                             LanguageId = 1,
                             LogoAddress = "/logo/logo.jpg",
@@ -102,7 +102,7 @@ namespace DataLayer.Migrations
                         {
                             SiteId = 2,
                             BackgroundAddress = "/img/home-bg.jpg",
-                            InsertTime = new DateTime(2022, 2, 22, 23, 5, 39, 187, DateTimeKind.Local).AddTicks(7843),
+                            InsertTime = new DateTime(2022, 3, 5, 10, 25, 20, 801, DateTimeKind.Local).AddTicks(8014),
                             IsRemoved = false,
                             LanguageId = 2,
                             LogoAddress = "/logo/logo.jpg",
@@ -279,18 +279,18 @@ namespace DataLayer.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "96df0257-f98e-4067-a4ed-46acfccf204e",
+                            ConcurrencyStamp = "d845c666-5511-48be-a887-4d93cf76b768",
                             Email = "shekoohianproject@gmail.com",
                             EmailConfirmed = true,
-                            InsertTime = new DateTime(2022, 2, 22, 23, 5, 39, 189, DateTimeKind.Local).AddTicks(449),
+                            InsertTime = new DateTime(2022, 3, 5, 10, 25, 20, 803, DateTimeKind.Local).AddTicks(7327),
                             IsRemoved = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SHEKOOHIANPROJECT@GMAIL.COM",
                             NormalizedUserName = "SHEKOOHIANPROJECT@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELLD/l8HqsP1bwRxVCZGx/VwQC7n38l0ydAfXKkVZlrtl4cEjrya14X7gHRrFBSDqg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAqj18WyA36NBD6pq9VvxLn64pGobR8+nwWRCaDw0kOw2Wp3hoSEUVCYORTjfCrQnA==",
                             PhoneNumber = "09172638641",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "dd316aab-f36c-43eb-83ee-1a46b9092163",
+                            SecurityStamp = "fb3f9970-a6bc-4892-a7b9-65830c386d78",
                             TwoFactorEnabled = false,
                             UserName = "shekoohianproject@gmail.com"
                         });

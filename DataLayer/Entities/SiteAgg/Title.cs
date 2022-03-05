@@ -8,6 +8,18 @@ namespace DataLayer.Entities.SiteAgg
         public int TitleId { get; set; }
         public string Name { get; set; }
 
+        public Title(string name, int languageId)
+        {
+            Name = name;
+            LanguageId = languageId;
+        }
+
+        public void Edit(string name, int languageId)
+        {
+            Name = name;
+            LanguageId = languageId;
+        }
+
         #region Relations
 
         public int LanguageId { get; set; }

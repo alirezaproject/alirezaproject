@@ -56,7 +56,7 @@ namespace DataLayer
             };
 
             var passwordHasher = new PasswordHasher<User>();
-            user.PasswordHash = passwordHasher.HashPassword(user, "@lirezaSHE0917");
+            user.PasswordHash = passwordHasher.HashPassword(user, "123456");
 
 
             builder.Entity<User>().HasData(user);

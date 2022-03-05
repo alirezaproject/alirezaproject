@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Globalization;
+using System.Threading.Tasks;
 using Core.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +16,7 @@ namespace EndPoint.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var model = await _siteService.GetHomeData();
+            var model = await _siteService.GetHomeData(CultureInfo.CurrentCulture.Name);
             return View("HomeSection",model);
         }
     }

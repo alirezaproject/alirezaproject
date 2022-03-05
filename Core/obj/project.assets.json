@@ -5875,23 +5875,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sheko\\.nuget\\packages\\": {},
+    "C:\\Users\\kamal\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Projects\\.Net Core\\AlirezaProject\\Core\\Core.csproj",
+      "projectUniqueName": "D:\\Alireza\\alirezaproject\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "G:\\Projects\\.Net Core\\AlirezaProject\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\sheko\\.nuget\\packages\\",
-      "outputPath": "G:\\Projects\\.Net Core\\AlirezaProject\\Core\\obj\\",
+      "projectPath": "D:\\Alireza\\alirezaproject\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\kamal\\.nuget\\packages\\",
+      "outputPath": "D:\\Alireza\\alirezaproject\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\sheko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kamal\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5899,15 +5899,14 @@
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "G:\\Projects\\.Net Core\\AlirezaProject\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "G:\\Projects\\.Net Core\\AlirezaProject\\DataLayer\\DataLayer.csproj"
+            "D:\\Alireza\\alirezaproject\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "D:\\Alireza\\alirezaproject\\DataLayer\\DataLayer.csproj"
             }
           }
         }
