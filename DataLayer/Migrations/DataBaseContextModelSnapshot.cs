@@ -19,6 +19,154 @@ namespace DataLayer.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("DataLayer.Entities.Common.Language", b =>
+                {
+                    b.Property<int>("LanguageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LangName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LanguageId");
+
+                    b.ToTable("Languages");
+
+                    b.HasData(
+                        new
+                        {
+                            LanguageId = 1,
+                            LangName = "fa-IR"
+                        },
+                        new
+                        {
+                            LanguageId = 2,
+                            LangName = "en-US"
+                        });
+                });
+
+            modelBuilder.Entity("DataLayer.Entities.SiteAgg.Site", b =>
+                {
+                    b.Property<int>("SiteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BackgroundAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LogoAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SongAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("SiteId");
+
+                    b.HasIndex("LanguageId");
+
+                    b.ToTable("Sites");
+
+                    b.HasData(
+                        new
+                        {
+                            SiteId = 1,
+                            BackgroundAddress = "/img/home-bg.jpg",
+                            InsertTime = new DateTime(2022, 2, 22, 23, 5, 39, 185, DateTimeKind.Local).AddTicks(6935),
+                            IsRemoved = false,
+                            LanguageId = 1,
+                            LogoAddress = "/logo/logo.jpg",
+                            SongAddress = "/audio/music.mp3",
+                            Title = "علی رضا شکوهیان"
+                        },
+                        new
+                        {
+                            SiteId = 2,
+                            BackgroundAddress = "/img/home-bg.jpg",
+                            InsertTime = new DateTime(2022, 2, 22, 23, 5, 39, 187, DateTimeKind.Local).AddTicks(7843),
+                            IsRemoved = false,
+                            LanguageId = 2,
+                            LogoAddress = "/logo/logo.jpg",
+                            SongAddress = "/audio/music.mp3",
+                            Title = "alireza shokouhian"
+                        });
+                });
+
+            modelBuilder.Entity("DataLayer.Entities.SiteAgg.SocialMedia", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CssClass")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SocialMedia");
+                });
+
+            modelBuilder.Entity("DataLayer.Entities.SiteAgg.Title", b =>
+                {
+                    b.Property<int>("TitleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TitleId");
+
+                    b.HasIndex("LanguageId");
+
+                    b.ToTable("Titles");
+                });
+
             modelBuilder.Entity("DataLayer.Entities.User.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -131,18 +279,18 @@ namespace DataLayer.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2d23a60e-3dbf-45e6-800b-62fd0df88d43",
+                            ConcurrencyStamp = "96df0257-f98e-4067-a4ed-46acfccf204e",
                             Email = "shekoohianproject@gmail.com",
                             EmailConfirmed = true,
-                            InsertTime = new DateTime(2021, 11, 14, 20, 4, 35, 882, DateTimeKind.Local).AddTicks(9140),
+                            InsertTime = new DateTime(2022, 2, 22, 23, 5, 39, 189, DateTimeKind.Local).AddTicks(449),
                             IsRemoved = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SHEKOOHIANPROJECT@GMAIL.COM",
                             NormalizedUserName = "SHEKOOHIANPROJECT@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKifuQ2lhdhGxl0KCuIdzUe7zmk4GEt1HgdIStlzjwxY9BCshNSj4rUMZbGlICz94A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELLD/l8HqsP1bwRxVCZGx/VwQC7n38l0ydAfXKkVZlrtl4cEjrya14X7gHRrFBSDqg==",
                             PhoneNumber = "09172638641",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "02a6e0cb-cfae-4fe7-8f21-11cbed577b5b",
+                            SecurityStamp = "dd316aab-f36c-43eb-83ee-1a46b9092163",
                             TwoFactorEnabled = false,
                             UserName = "shekoohianproject@gmail.com"
                         });
@@ -249,6 +397,28 @@ namespace DataLayer.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("DataLayer.Entities.SiteAgg.Site", b =>
+                {
+                    b.HasOne("DataLayer.Entities.Common.Language", "Language")
+                        .WithMany("Sites")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("DataLayer.Entities.SiteAgg.Title", b =>
+                {
+                    b.HasOne("DataLayer.Entities.Common.Language", "Language")
+                        .WithMany("Titles")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("DataLayer.Entities.User.Role", null)
@@ -298,6 +468,13 @@ namespace DataLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("DataLayer.Entities.Common.Language", b =>
+                {
+                    b.Navigation("Sites");
+
+                    b.Navigation("Titles");
                 });
 #pragma warning restore 612, 618
         }

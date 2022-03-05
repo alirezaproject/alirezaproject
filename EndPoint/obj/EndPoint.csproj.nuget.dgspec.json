@@ -31,7 +31,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "G:\\Projects\\.Net Core\\AlirezaProject\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "G:\\Projects\\.Net Core\\AlirezaProject\\DataLayer\\DataLayer.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -58,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -89,11 +93,7 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {
-              "G:\\Projects\\.Net Core\\AlirezaProject\\Core\\Core.csproj": {
-                "projectPath": "G:\\Projects\\.Net Core\\AlirezaProject\\Core\\Core.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -136,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -168,6 +168,9 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "G:\\Projects\\.Net Core\\AlirezaProject\\Core\\Core.csproj": {
+                "projectPath": "G:\\Projects\\.Net Core\\AlirezaProject\\Core\\Core.csproj"
+              },
               "G:\\Projects\\.Net Core\\AlirezaProject\\DataLayer\\DataLayer.csproj": {
                 "projectPath": "G:\\Projects\\.Net Core\\AlirezaProject\\DataLayer\\DataLayer.csproj"
               }
@@ -198,6 +201,12 @@
               "target": "Package",
               "version": "[5.0.12, )"
             },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.12, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
@@ -221,7 +230,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

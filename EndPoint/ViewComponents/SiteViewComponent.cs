@@ -1,13 +1,22 @@
 ﻿using System.Threading.Tasks;
+using Core.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EndPoint.ViewComponents
 {
     public class HomeSectionViewComponent : ViewComponent
     {
+        private readonly ISiteService _siteService;
+
+        public HomeSectionViewComponent(ISiteService siteService)
+        {
+            _siteService = siteService;
+        }
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View("HomeSection");
+            var model = await _siteService.GetHomeData();
+            return View("HomeSection",model);
         }
     }
 

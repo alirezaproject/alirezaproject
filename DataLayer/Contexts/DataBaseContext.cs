@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Core.Services.Interfaces;
 using DataLayer.Entities.Common;
+using DataLayer.Entities.SiteAgg;
 using DataLayer.Entities.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -11,12 +11,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer.Contexts
 {
-    public class DataBaseContext : IdentityDataBaseContext, IDataBaseContext
+    public class DataBaseContext : IdentityDataBaseContext 
     {
         public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options)   
         {
             
         }
+
+        #region Properties
+
+        public DbSet<SocialMedia> SocialMedia { get; set; }
+        public DbSet<Site> Sites { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<Title> Titles { get; set; }
+        #endregion
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
 
@@ -80,11 +89,16 @@ namespace DataLayer.Contexts
             
             DataBaseSeeds.SeedUsers(builder);
             base.OnModelCreating(builder);
-            
+            Configuration(builder);
 
         }
 
+        private void Configuration(ModelBuilder builder)
+        {
+            builder.Entity<SocialMedia>().HasQueryFilter(s => !EF.Property<bool>(s, "IsRemoved"));
+        }
 
+        
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
 

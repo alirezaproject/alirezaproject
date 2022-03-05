@@ -463,3 +463,7 @@ G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\EndPoint.genrunti
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Social\Index.cshtml.g.cs
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Pages\ForgotPassword.cshtml.g.cs
 G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Pages\ResetPassword.cshtml.g.cs
+G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Social\Create.cshtml.g.cs
+G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Social\Edit.cshtml.g.cs
+G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Site\Index.cshtml.g.cs
+G:\Projects\.Net Core\AlirezaProject\EndPoint\obj\Debug\net5.0\Razor\Areas\Admin\Pages\Titles\Index.cshtml.g.cs

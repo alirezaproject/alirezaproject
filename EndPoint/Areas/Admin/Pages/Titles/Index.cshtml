@@ -1,0 +1,62 @@
+﻿@page
+@model EndPoint.Areas.Admin.Pages.Titles.IndexModel
+@{
+    ViewData["Title"] = "لیست عناوین صفحه اصلی";
+}
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-body">
+            <div class="row">
+            </div>
+            
+            <section id="basic-datatable">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="btn btn-success" asp-page="Create">ایجاد عنوان جدید</a>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body card-dashboard">
+
+                                    <div class="table-responsive">
+                                        <table class="table zero-configuration">
+                                            <thead>
+                                                <tr>
+                                                    <th>ردیف</th>
+                                                    <th>نام</th>
+                                                    <th>زبان</th>
+                                                    
+                                                    <th>دستورات</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach (var item in Model.Input)
+                                            {
+                                                <tr>
+                                                    <td>@item.TitleId</td>
+                                                    <td>@item.Name</td>
+                                                    <td>@item.Language</td>
+                                                    <td>
+                                                        <a href="#" onclick="Delete('@item.TitleId')" class="btn btn-danger">حذف</a>
+                                                        <a asp-page="./Edit" asp-route-id="@item.TitleId" class="btn btn-warning">ویرایش</a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                           
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+</div>

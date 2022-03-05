@@ -7,7 +7,7 @@
   <ItemGroup>
     <Folder Include="Contexts\" />
     <Folder Include="Entities\Common\" />
-    <Folder Include="Entities\Site\" />
+    <Folder Include="Entities\SiteAgg\" />
     <Folder Include="Entities\User\" />
   </ItemGroup>
 
@@ -18,10 +18,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 
 </Project>

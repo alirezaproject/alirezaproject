@@ -1,6 +1,6 @@
 ﻿@using System.Globalization
-
-<div class="pt-home" style="background-image: url('img/home-bg.jpg')">
+@model Core.DTOs.Site.HomeDto
+<div class="pt-home" style="background-image: url('/img/home-bg.jpg')">
     <section>
 
         <!-- Banner -->
@@ -27,10 +27,12 @@
         <!-- Social -->
         <div class="social">
             <ul>
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                @foreach (var item in Model.SocialMedias)
+                {
+                    <li><a href="@item.Url"><i class="fab @item.CssClass"></i></a></li>
+                }
+                
+     
             </ul>
         </div>
     </section>

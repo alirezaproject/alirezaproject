@@ -33,10 +33,12 @@
     ".NETCoreApp,Version=v5.0": {
       "EndPoint/1.0.0": {
         "dependencies": {
+          "Core": "1.0.0",
           "DataLayer": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "5.0.12",
           "Microsoft.EntityFrameworkCore.Design": "5.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
+          "Microsoft.EntityFrameworkCore.Tools": "5.0.12",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -852,6 +854,11 @@
         },
         "compile": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/5.0.12": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "5.0.12"
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/5.0.0": {
@@ -1916,6 +1923,9 @@
         }
       },
       "Core/1.0.0": {
+        "dependencies": {
+          "DataLayer": "1.0.0"
+        },
         "runtime": {
           "Core.dll": {}
         },
@@ -1925,7 +1935,6 @@
       },
       "DataLayer/1.0.0": {
         "dependencies": {
-          "Core": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
         },
@@ -3787,6 +3796,13 @@
       "sha512": "sha512-leJohwUxtdDQcpnkzvx0Kkq92AZ8akgaxR8TChts3fD07iqWktPMqs+u5CLcGQwGFd8GuCXUZXBJxvUM1/UNJg==",
       "path": "microsoft.entityframeworkcore.sqlserver/5.0.12",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.5.0.12.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Tools/5.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fk6P7PZmbN/148oR2RBTnCWsTMdNKlOL/OgF6HJOY8HBbNLIdW720hYIbckmwQ6kad2gaKGXYoW9tDDu69cCQA==",
+      "path": "microsoft.entityframeworkcore.tools/5.0.12",
+      "hashPath": "microsoft.entityframeworkcore.tools.5.0.12.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/5.0.0": {
       "type": "package",

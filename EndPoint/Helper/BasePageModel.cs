@@ -4,9 +4,9 @@ namespace EndPoint.Helper
 {
     public class BasePageModel : PageModel
     {
-        protected string SuccessMessage = "SuccessMessage";
-        protected string ErrorMessage = "ErrorMessage";
-        protected string WarningMessage = "WarningMessage";
-        protected string InfoMessage = "InfoMessage";
+        public  string SuccessMessage = "SuccessMessage";
+        public string ErrorMessage = "ErrorMessage";
+        public string WarningMessage = "WarningMessage";
+        public string InfoMessage = "InfoMessage";
     }
 }

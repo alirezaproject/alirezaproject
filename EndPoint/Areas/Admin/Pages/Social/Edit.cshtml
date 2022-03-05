@@ -1,0 +1,75 @@
+﻿@page
+@model EndPoint.Areas.Admin.Pages.Social.EditModel
+@{
+    ViewData["Title"] = "ویرایش شبکه اجتماعی";
+}
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+
+        <div class="content-body">
+            <!-- Basic Horizontal form layout section start -->
+            <!-- // Basic multiple Column Form section start -->
+            <section id="multiple-column-form">
+                <div class="row match-height">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">@ViewData["Title"]</h4>
+                            </div>
+                        
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <form class="form" method="post">
+                                        <input asp-for="SocialMedia.Id" type="hidden"/>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-4 col-12">
+                                                    <label asp-for="SocialMedia.Title"></label>
+                                                    <div class="form-label-group">
+
+                                                        <input type="text" asp-for="SocialMedia.Title" class="form-control">
+                                                        <span asp-validation-for="SocialMedia.Title"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-12">
+                                                    <label asp-for="SocialMedia.Url"></label>
+                                                    <div class="form-label-group">
+
+                                                        <input type="text" asp-for="SocialMedia.Url" class="form-control">
+                                                        <span asp-validation-for="SocialMedia.Url"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-12">
+                                                    <label asp-for="SocialMedia.CssClass"></label>
+                                                    <div class="form-label-group">
+
+                                                        <input type="text" asp-for="SocialMedia.CssClass" class="form-control">
+                                                        <span asp-validation-for="SocialMedia.Title"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 d-flex justify-content-end">
+                                                    <button type="submit" class="btn btn-primary mr-1 mb-1">ایجاد</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- // Basic multiple Column Form section end -->
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

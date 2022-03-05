@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 
@@ -13,10 +14,11 @@ namespace EndPoint.Pages
     public class IndexModel : PageModel
     {
 
+    
 
         public void OnGet()
         {
-
+           
         }
 
         public IActionResult OnGetChangeCulture(string culture)

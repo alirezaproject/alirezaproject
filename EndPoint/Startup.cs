@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
@@ -34,8 +35,9 @@ namespace EndPoint
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddTransient<IDataBaseContext, DataBaseContext>();
             services.AddTransient<IEmailService, EmailService>();
+            services.AddScoped<ISiteService, SiteService>();
+            services.AddScoped<ISocialMediaService, SocialMediaService>();
 
             #region Database
             services.AddDbContext<DataBaseContext>(options =>
@@ -46,7 +48,7 @@ namespace EndPoint
 
             services.AddRazorPages(options =>
             {
-                options.Conventions.AuthorizeAreaFolder("Admin", "/");
+             //   options.Conventions.AuthorizeAreaFolder("Admin", "/");
             });
 
             #region Identity

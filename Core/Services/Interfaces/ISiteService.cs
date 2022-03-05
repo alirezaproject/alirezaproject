@@ -1,11 +1,15 @@
-﻿namespace Core.Services.Interfaces
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Core.DTOs.Site;
+using Core.DTOs.Site.Title;
+
+namespace Core.Services.Interfaces
 {
     public interface ISiteService
     {
-        #region Social Media
+        Task<HomeDto> GetHomeData();
 
-        
-
-        #endregion
+        Task<List<SiteDto>> GetSiteListAsync();
+        Task<List<TitleDto>> GetTitleListAsync();
     }
 }
