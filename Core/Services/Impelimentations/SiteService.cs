@@ -112,7 +112,7 @@ namespace Core.Services.Impelimentations
         {
             var title = await _context.Titles.FindAsync(command.TitleId);
 
-            title.Edit(command.Name,command.LanguageId);
+            title.Edit(command.Name, command.LanguageId);
             await _context.SaveChangesAsync();
         }
 
@@ -123,6 +123,24 @@ namespace Core.Services.Impelimentations
                 Logo = s.LogoAddress,
                 Sound = s.SongAddress
             }).FirstOrDefaultAsync();
+        }
+
+        public async Task<EditSiteDto> GetSitedetails(int siteId)
+        {
+            return await _context.Sites.Where(x => x.SiteId == siteId).Select(s => new EditSiteDto()
+            {
+                Title = s.Title,
+                SiteId = s.SiteId,
+
+            }).FirstOrDefaultAsync();
+        }
+
+        public async Task EditSite(EditSiteDto command)
+        {
+            var site = await _context.Sites.FindAsync(command.SiteId);
+            site.Title = command.Title;
+
+            await _context.SaveChangesAsync();
         }
     }
 }

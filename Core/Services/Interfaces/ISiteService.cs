@@ -19,5 +19,7 @@ namespace Core.Services.Interfaces
         Task EditTitle(EditTitleDto command);
 
         Task<MainDto> GetMainData(string culture);
+        Task<EditSiteDto> GetSitedetails(int siteId);
+        Task EditSite(EditSiteDto command);
     }
 }

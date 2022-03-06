@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DataLayer.Entities.AboutAgg;
 using DataLayer.Entities.SiteAgg;
 
 namespace DataLayer.Entities.Common
@@ -12,6 +13,9 @@ namespace DataLayer.Entities.Common
 
         public ICollection<Site> Sites { get; set; }
         public ICollection<Title> Titles { get; set; }
+        public ICollection<AboutMe> AboutMe { get; set; }
+        public ICollection<Info> Infos { get; set; }
+        public ICollection<Favorite> Favorites { get; set; }
 
         #endregion
     }

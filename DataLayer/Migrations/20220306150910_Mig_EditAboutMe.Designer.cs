@@ -4,14 +4,16 @@ using DataLayer.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220306150910_Mig_EditAboutMe")]
+    partial class Mig_EditAboutMe
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,55 +51,6 @@ namespace DataLayer.Migrations
                     b.HasIndex("LanguageId");
 
                     b.ToTable("AboutMe");
-                });
-
-            modelBuilder.Entity("DataLayer.Entities.AboutAgg.Favorite", b =>
-                {
-                    b.Property<int>("FavoriteId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Icon")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LanguageId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("FavoriteId");
-
-                    b.HasIndex("LanguageId");
-
-                    b.ToTable("Favorites");
-                });
-
-            modelBuilder.Entity("DataLayer.Entities.AboutAgg.Info", b =>
-                {
-                    b.Property<int>("InfoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Icon")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LanguageId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("InfoId");
-
-                    b.HasIndex("LanguageId");
-
-                    b.ToTable("Info");
                 });
 
             modelBuilder.Entity("DataLayer.Entities.Common.Language", b =>
@@ -172,7 +125,7 @@ namespace DataLayer.Migrations
                         {
                             SiteId = 1,
                             BackgroundAddress = "/img/home-bg.jpg",
-                            InsertTime = new DateTime(2022, 3, 6, 21, 40, 31, 546, DateTimeKind.Local).AddTicks(3771),
+                            InsertTime = new DateTime(2022, 3, 6, 18, 39, 9, 540, DateTimeKind.Local).AddTicks(1959),
                             IsRemoved = false,
                             LanguageId = 1,
                             LogoAddress = "/logo/logo.jpg",
@@ -183,7 +136,7 @@ namespace DataLayer.Migrations
                         {
                             SiteId = 2,
                             BackgroundAddress = "/img/home-bg.jpg",
-                            InsertTime = new DateTime(2022, 3, 6, 21, 40, 31, 548, DateTimeKind.Local).AddTicks(9173),
+                            InsertTime = new DateTime(2022, 3, 6, 18, 39, 9, 542, DateTimeKind.Local).AddTicks(3274),
                             IsRemoved = false,
                             LanguageId = 2,
                             LogoAddress = "/logo/logo.jpg",
@@ -360,18 +313,18 @@ namespace DataLayer.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "49e7cc44-95ee-4b16-9fec-9cba033e0480",
+                            ConcurrencyStamp = "1e0b2c09-0e2f-463b-b083-c07aad36f7a6",
                             Email = "shekoohianproject@gmail.com",
                             EmailConfirmed = true,
-                            InsertTime = new DateTime(2022, 3, 6, 21, 40, 31, 550, DateTimeKind.Local).AddTicks(7867),
+                            InsertTime = new DateTime(2022, 3, 6, 18, 39, 9, 543, DateTimeKind.Local).AddTicks(5944),
                             IsRemoved = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SHEKOOHIANPROJECT@GMAIL.COM",
                             NormalizedUserName = "SHEKOOHIANPROJECT@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIF4NU/PrEkekAPddQD+zUsyO1zjWu2QBFN2SRaEJmQk0HvzoMnkBd4rBafgVuxhBg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA5NuUptJgyRdM/lMMEy1hjNaYRkVYvVnn89DI+bdv0LfMKBGBVuuC9od9WcqKIWug==",
                             PhoneNumber = "09172638641",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "70e8f0e1-f7e5-4fb7-be0f-bff54e220483",
+                            SecurityStamp = "825c5d24-99c1-459b-9cd5-2d9d7768affc",
                             TwoFactorEnabled = false,
                             UserName = "shekoohianproject@gmail.com"
                         });
@@ -489,28 +442,6 @@ namespace DataLayer.Migrations
                     b.Navigation("Language");
                 });
 
-            modelBuilder.Entity("DataLayer.Entities.AboutAgg.Favorite", b =>
-                {
-                    b.HasOne("DataLayer.Entities.Common.Language", "Language")
-                        .WithMany("Favorites")
-                        .HasForeignKey("LanguageId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Language");
-                });
-
-            modelBuilder.Entity("DataLayer.Entities.AboutAgg.Info", b =>
-                {
-                    b.HasOne("DataLayer.Entities.Common.Language", "Language")
-                        .WithMany("Infos")
-                        .HasForeignKey("LanguageId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Language");
-                });
-
             modelBuilder.Entity("DataLayer.Entities.SiteAgg.Site", b =>
                 {
                     b.HasOne("DataLayer.Entities.Common.Language", "Language")
@@ -587,10 +518,6 @@ namespace DataLayer.Migrations
             modelBuilder.Entity("DataLayer.Entities.Common.Language", b =>
                 {
                     b.Navigation("AboutMe");
-
-                    b.Navigation("Favorites");
-
-                    b.Navigation("Infos");
 
                     b.Navigation("Sites");
 

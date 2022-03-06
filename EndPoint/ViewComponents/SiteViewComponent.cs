@@ -23,9 +23,17 @@ namespace EndPoint.ViewComponents
 
     public class AboutSectionViewComponent : ViewComponent
     {
+        private readonly IAboutService _aboutService;
+
+        public AboutSectionViewComponent(IAboutService aboutService)
+        {
+            _aboutService = aboutService;
+        }
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View("AboutSection");
+            var model = await _aboutService.GetAboutMeByLanguageAsync(CultureInfo.CurrentCulture.Name);
+            return View("AboutSection",model);
         }
     }
 

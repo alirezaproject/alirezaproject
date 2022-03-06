@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using DataLayer.Entities.AboutAgg;
 using DataLayer.Entities.Common;
 using DataLayer.Entities.SiteAgg;
 using DataLayer.Entities.User;
@@ -19,11 +20,15 @@ namespace DataLayer.Contexts
         }
 
         #region Properties
-
         public DbSet<SocialMedia> SocialMedia { get; set; }
         public DbSet<Site> Sites { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<Title> Titles { get; set; }
+        public DbSet<AboutMe> AboutMe { get; set; }
+        public DbSet<Info> Info { get; set; }
+        public DbSet<Favorite> Favorites { get; set; }
+
+
         #endregion
 
         protected override void OnModelCreating(ModelBuilder builder)

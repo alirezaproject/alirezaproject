@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataLayer.Migrations
 {
-    public partial class Mig_Init : Migration
+    public partial class Mig_AddAboutMe : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -185,6 +185,28 @@ namespace DataLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AboutMe",
+                columns: table => new
+                {
+                    AboutMeId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Text = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Resume = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LanguageId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AboutMe", x => x.AboutMeId);
+                    table.ForeignKey(
+                        name: "FK_AboutMe_Languages_LanguageId",
+                        column: x => x.LanguageId,
+                        principalTable: "Languages",
+                        principalColumn: "LanguageId");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Sites",
                 columns: table => new
                 {
@@ -232,7 +254,7 @@ namespace DataLayer.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "InsertTime", "IsRemoved", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RemoveTime", "SecurityStamp", "TwoFactorEnabled", "UpdateTime", "UserName" },
-                values: new object[] { 1, 0, "d845c666-5511-48be-a887-4d93cf76b768", "shekoohianproject@gmail.com", true, new DateTime(2022, 3, 5, 10, 25, 20, 803, DateTimeKind.Local).AddTicks(7327), false, false, null, "SHEKOOHIANPROJECT@GMAIL.COM", "SHEKOOHIANPROJECT@GMAIL.COM", "AQAAAAEAACcQAAAAEAqj18WyA36NBD6pq9VvxLn64pGobR8+nwWRCaDw0kOw2Wp3hoSEUVCYORTjfCrQnA==", "09172638641", true, null, "fb3f9970-a6bc-4892-a7b9-65830c386d78", false, null, "shekoohianproject@gmail.com" });
+                values: new object[] { 1, 0, "8c3024b4-553a-40bd-b2da-ed2321394bb0", "shekoohianproject@gmail.com", true, new DateTime(2022, 3, 6, 18, 19, 48, 516, DateTimeKind.Local).AddTicks(3743), false, false, null, "SHEKOOHIANPROJECT@GMAIL.COM", "SHEKOOHIANPROJECT@GMAIL.COM", "AQAAAAEAACcQAAAAEO+pdsSJzhodBVBvrUroZb9ROAJ3vANKVJd83NPZfY6iLKDpTD6DsUTfmaqZNwyQ9w==", "09172638641", true, null, "ad3e04ae-35bd-4ee9-b425-97e82a09767b", false, null, "shekoohianproject@gmail.com" });
 
             migrationBuilder.InsertData(
                 table: "Languages",
@@ -247,12 +269,17 @@ namespace DataLayer.Migrations
             migrationBuilder.InsertData(
                 table: "Sites",
                 columns: new[] { "SiteId", "BackgroundAddress", "InsertTime", "IsRemoved", "LanguageId", "LogoAddress", "RemoveTime", "SongAddress", "Title", "UpdateTime" },
-                values: new object[] { 1, "/img/home-bg.jpg", new DateTime(2022, 3, 5, 10, 25, 20, 798, DateTimeKind.Local).AddTicks(9205), false, 1, "/logo/logo.jpg", null, "/audio/music.mp3", "علی رضا شکوهیان", null });
+                values: new object[] { 1, "/img/home-bg.jpg", new DateTime(2022, 3, 6, 18, 19, 48, 512, DateTimeKind.Local).AddTicks(5409), false, 1, "/logo/logo.jpg", null, "/audio/music.mp3", "علی رضا شکوهیان", null });
 
             migrationBuilder.InsertData(
                 table: "Sites",
                 columns: new[] { "SiteId", "BackgroundAddress", "InsertTime", "IsRemoved", "LanguageId", "LogoAddress", "RemoveTime", "SongAddress", "Title", "UpdateTime" },
-                values: new object[] { 2, "/img/home-bg.jpg", new DateTime(2022, 3, 5, 10, 25, 20, 801, DateTimeKind.Local).AddTicks(8014), false, 2, "/logo/logo.jpg", null, "/audio/music.mp3", "alireza shokouhian", null });
+                values: new object[] { 2, "/img/home-bg.jpg", new DateTime(2022, 3, 6, 18, 19, 48, 514, DateTimeKind.Local).AddTicks(9318), false, 2, "/logo/logo.jpg", null, "/audio/music.mp3", "alireza shokouhian", null });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AboutMe_LanguageId",
+                table: "AboutMe",
+                column: "LanguageId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -306,6 +333,9 @@ namespace DataLayer.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AboutMe");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20220305065521_Mig_Init")]
-    partial class Mig_Init
+    [Migration("20220306144949_Mig_AddAboutMe")]
+    partial class Mig_AddAboutMe
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,35 @@ namespace DataLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("DataLayer.Entities.AboutAgg.AboutMe", b =>
+                {
+                    b.Property<int>("AboutMeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Resume")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AboutMeId");
+
+                    b.HasIndex("LanguageId");
+
+                    b.ToTable("AboutMe");
+                });
 
             modelBuilder.Entity("DataLayer.Entities.Common.Language", b =>
                 {
@@ -93,7 +122,7 @@ namespace DataLayer.Migrations
                         {
                             SiteId = 1,
                             BackgroundAddress = "/img/home-bg.jpg",
-                            InsertTime = new DateTime(2022, 3, 5, 10, 25, 20, 798, DateTimeKind.Local).AddTicks(9205),
+                            InsertTime = new DateTime(2022, 3, 6, 18, 19, 48, 512, DateTimeKind.Local).AddTicks(5409),
                             IsRemoved = false,
                             LanguageId = 1,
                             LogoAddress = "/logo/logo.jpg",
@@ -104,7 +133,7 @@ namespace DataLayer.Migrations
                         {
                             SiteId = 2,
                             BackgroundAddress = "/img/home-bg.jpg",
-                            InsertTime = new DateTime(2022, 3, 5, 10, 25, 20, 801, DateTimeKind.Local).AddTicks(8014),
+                            InsertTime = new DateTime(2022, 3, 6, 18, 19, 48, 514, DateTimeKind.Local).AddTicks(9318),
                             IsRemoved = false,
                             LanguageId = 2,
                             LogoAddress = "/logo/logo.jpg",
@@ -281,18 +310,18 @@ namespace DataLayer.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d845c666-5511-48be-a887-4d93cf76b768",
+                            ConcurrencyStamp = "8c3024b4-553a-40bd-b2da-ed2321394bb0",
                             Email = "shekoohianproject@gmail.com",
                             EmailConfirmed = true,
-                            InsertTime = new DateTime(2022, 3, 5, 10, 25, 20, 803, DateTimeKind.Local).AddTicks(7327),
+                            InsertTime = new DateTime(2022, 3, 6, 18, 19, 48, 516, DateTimeKind.Local).AddTicks(3743),
                             IsRemoved = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SHEKOOHIANPROJECT@GMAIL.COM",
                             NormalizedUserName = "SHEKOOHIANPROJECT@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAqj18WyA36NBD6pq9VvxLn64pGobR8+nwWRCaDw0kOw2Wp3hoSEUVCYORTjfCrQnA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO+pdsSJzhodBVBvrUroZb9ROAJ3vANKVJd83NPZfY6iLKDpTD6DsUTfmaqZNwyQ9w==",
                             PhoneNumber = "09172638641",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "fb3f9970-a6bc-4892-a7b9-65830c386d78",
+                            SecurityStamp = "ad3e04ae-35bd-4ee9-b425-97e82a09767b",
                             TwoFactorEnabled = false,
                             UserName = "shekoohianproject@gmail.com"
                         });
@@ -399,6 +428,17 @@ namespace DataLayer.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("DataLayer.Entities.AboutAgg.AboutMe", b =>
+                {
+                    b.HasOne("DataLayer.Entities.Common.Language", "Language")
+                        .WithMany("AboutMe")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+                });
+
             modelBuilder.Entity("DataLayer.Entities.SiteAgg.Site", b =>
                 {
                     b.HasOne("DataLayer.Entities.Common.Language", "Language")
@@ -474,6 +514,8 @@ namespace DataLayer.Migrations
 
             modelBuilder.Entity("DataLayer.Entities.Common.Language", b =>
                 {
+                    b.Navigation("AboutMe");
+
                     b.Navigation("Sites");
 
                     b.Navigation("Titles");

@@ -38,6 +38,7 @@ namespace EndPoint
             services.AddTransient<IEmailService, EmailService>();
             services.AddScoped<ISiteService, SiteService>();
             services.AddScoped<ISocialMediaService, SocialMediaService>();
+            services.AddScoped<IAboutService, AboutService>();
 
             #region Database
             services.AddDbContext<DataBaseContext>(options =>
