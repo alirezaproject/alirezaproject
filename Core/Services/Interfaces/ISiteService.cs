@@ -21,5 +21,6 @@ namespace Core.Services.Interfaces
         Task<MainDto> GetMainData(string culture);
         Task<EditSiteDto> GetSitedetails(int siteId);
         Task EditSite(EditSiteDto command);
+        Task<string> GetResumePath(string culture);
     }
 }

@@ -1,9 +1,13 @@
-﻿<div class="page pt-contact" data-simplebar>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@model Core.DTOs.Contact.CreateContactUsDto
+@inject IViewLocalizer _localizer
+<div class="page pt-contact" data-simplebar>
     <section class="container">
 
         <!-- Section Title -->
         <div class="header-page mt-70 mob-mt">
-            <h2>تماس</h2>
+            <h2>@_localizer["Call"]</h2>
             <span></span>
         </div>
 
@@ -11,35 +15,44 @@
         <div class="row mt-100">
             <div class="col-lg-12 col-sm-12">
                 <div class="contact-form ">
-                    <form method="post" class="box-1 contact-valid" id="contact-form">
+                    <form method="post" asp-page="/Index" asp-page-handler="Send" class="box-1 contact-valid">
                         <div class="row">
                             <div class="col-lg-6 col-sm-12">
-                                <input type="text" name="name" id="name" class="form-control" placeholder="نام *">
+                                <input type="text" asp-for="Name" class="form-control" placeholder="@(_localizer["Name"])" dir="@(CultureInfo.CurrentCulture.Name == "fa-IR" ? "rtl":"ltr")">
                             </div>
                             <div class="col-lg-6 col-sm-12 mt-3 mt-lg-0">
-                                <input type="email" name="email" id="email" class="form-control" placeholder="* ایمیل" dir="ltr">
+                                <input type="email" asp-for="Email" class="form-control" placeholder="@(_localizer["Email"])" dir="ltr">
                             </div>
                             <div class="col-lg-12 col-sm-12">
-                                <textarea class="form-control" name="note" id="note" placeholder="پیام شما"></textarea>
+                                <textarea class="form-control" asp-for="Message" placeholder="@(_localizer["Message"])" dir="@(CultureInfo.CurrentCulture.Name == "fa-IR" ? "rtl":"ltr")"></textarea>
                             </div>
                             <div class="col-lg-12 col-sm-12 text-center">
-                                <button type="submit" class="btn-st">ارسال پیام</button>
+                                <button type="submit" class="btn-st">@(_localizer["Send"])</button>
                                 <div id="loader">
                                     <i class="fas fa-sync"></i>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-sm-12">
                                 <div class="error-messages">
-                                    <div id="success">
-                                        <i class="far fa-check-circle"></i>متشکریم، پیام شما ارسال شد.
-                                    </div>
-                                    <div id="error">
-                                        <i class="far fa-times-circle"></i>خطایی در هنگام ارسال ایمیل رخ داد. لطفا مجدد تلاش کنید.
-                                    </div>
+                                    @if (TempData["Success"] != null)
+                                    {
+                                        <div id="success" style="display: block;">
+                                            <i class="far fa-check-circle"></i>@_localizer["Success"]
+                                        </div>
+                                    }
+                                    @if (TempData["Error"] != null)
+                                    {
+
+                                        <div id="error" style="display: block;">
+                                            <i class="far fa-times-circle"></i>@_localizer["Error"]
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>
                     </form>
+                
+
                 </div>
             </div>
         </div>

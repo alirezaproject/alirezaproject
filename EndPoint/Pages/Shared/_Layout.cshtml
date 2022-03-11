@@ -1,4 +1,5 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer  _localizer
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -8,7 +9,7 @@
     <partial name="Partials/_MetaTags" />
 
     <!-- Title -->
-    <title>سایت شخصی علی رضا شکوهیان</title>
+    <title>@_localizer["Title"]</title>
 
     <!-- CSS Plugins -->
     <partial name="Partials/_Styles" />

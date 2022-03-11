@@ -8,6 +8,9 @@
     <Folder Include="Contexts\" />
     <Folder Include="Entities\Common\" />
     <Folder Include="Entities\AboutAgg\" />
+    <Folder Include="Entities\ContactAgg\" />
+    <Folder Include="Entities\PortfolioAgg\" />
+    <Folder Include="Entities\ResumeAgg\" />
     <Folder Include="Entities\SiteAgg\" />
     <Folder Include="Entities\User\" />
   </ItemGroup>

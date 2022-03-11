@@ -50,6 +50,18 @@
     <EmbeddedResource Update="Resources\Pages\Index.en-US.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Pages\Shared\Components\AboutSection\AboutSection.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Pages\Shared\Components\ContactSection\ContactSection.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Pages\Shared\Components\PortfolioSection\HomeSection.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Pages\Shared\Components\ResumeSection\ResumeSection.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

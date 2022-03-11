@@ -1,0 +1,70 @@
+﻿@page
+@model EndPoint.Areas.Admin.Pages.Portfolio.IndexModel
+@{
+    ViewData["Title"] = "لیست نمونه کار ها";
+}
+
+
+
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-body">
+            <div class="row">
+            </div>
+            
+            <section id="basic-datatable">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="btn btn-success" asp-page="Create">ایجاد نمونه کار</a>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body card-dashboard">
+
+                                    <div class="table-responsive">
+                                        <table class="table zero-configuration">
+                                            <thead>
+                                            <tr>
+                                                <th>ردیف</th>
+                                                <th>عنوان </th>
+                                                <th>تگ</th>
+                                                <th>آدرس</th>
+                                                <th>عکس</th>
+                                                <th>دستورات</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach (var item in Model.Input)
+                                            {
+                                                <tr>
+                                                    <td>@item.PortfolioId</td>
+                                                    <td>@item.Title</td>
+                                                    <td>@item.Tag</td>
+                                                    <td>@item.Url</td>
+                                                    <td>
+                                                        <img style="max-width: 300px" src="@item.Image"/>
+                                                    </td>
+
+                                                    <td>
+                                                        <a asp-page="./Edit" asp-route-portfolioId="@item.PortfolioId" class="btn btn-warning">ویرایش</a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                           
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+</div>

@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using DataLayer.Contexts;
 using DataLayer.Entities;
 using DataLayer.Entities.User;
+using EndPoint.Helper;
 using Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
@@ -39,7 +40,10 @@ namespace EndPoint
             services.AddScoped<ISiteService, SiteService>();
             services.AddScoped<ISocialMediaService, SocialMediaService>();
             services.AddScoped<IAboutService, AboutService>();
-
+            services.AddScoped<IResumeService, ResumeService>();
+            services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IPortfolioService, PortfolioService>();
+            services.AddScoped<IFileUploader, FileUploader>();
             #region Database
             services.AddDbContext<DataBaseContext>(options =>
             {
@@ -49,7 +53,7 @@ namespace EndPoint
 
             services.AddRazorPages(options =>
             {
-             //   options.Conventions.AuthorizeAreaFolder("Admin", "/");
+                options.Conventions.AuthorizeAreaFolder("Admin", "/");
             });
 
             #region Identity

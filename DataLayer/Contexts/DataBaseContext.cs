@@ -4,6 +4,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using DataLayer.Entities.AboutAgg;
 using DataLayer.Entities.Common;
+using DataLayer.Entities.ContactAgg;
+using DataLayer.Entities.PortfolioAgg;
+using DataLayer.Entities.ResumeAgg;
 using DataLayer.Entities.SiteAgg;
 using DataLayer.Entities.User;
 using Microsoft.AspNetCore.Identity;
@@ -27,8 +30,11 @@ namespace DataLayer.Contexts
         public DbSet<AboutMe> AboutMe { get; set; }
         public DbSet<Info> Info { get; set; }
         public DbSet<Favorite> Favorites { get; set; }
+        public DbSet<Experience> Experiences { get; set; }
+        public DbSet<ContactUs> ContactUs { get; set; }
+        public DbSet<Portfolio> Portfolios { get; set; }
 
-
+        
         #endregion
 
         protected override void OnModelCreating(ModelBuilder builder)

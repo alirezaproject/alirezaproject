@@ -127,6 +127,77 @@ namespace DataLayer.Migrations
                         });
                 });
 
+            modelBuilder.Entity("DataLayer.Entities.ContactAgg.ContactUs", b =>
+                {
+                    b.Property<long>("ContactUsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ContactUsId");
+
+                    b.ToTable("ContactUs");
+                });
+
+            modelBuilder.Entity("DataLayer.Entities.PortfolioAgg.Portfolio", b =>
+                {
+                    b.Property<int>("PortfolioId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tag")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PortfolioId");
+
+                    b.ToTable("Portfolios");
+                });
+
+            modelBuilder.Entity("DataLayer.Entities.ResumeAgg.Experience", b =>
+                {
+                    b.Property<int>("ExperienceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsRight")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Percentage")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ExperienceId");
+
+                    b.HasIndex("LanguageId");
+
+                    b.ToTable("Experiences");
+                });
+
             modelBuilder.Entity("DataLayer.Entities.SiteAgg.Site", b =>
                 {
                     b.Property<int>("SiteId")
@@ -172,7 +243,7 @@ namespace DataLayer.Migrations
                         {
                             SiteId = 1,
                             BackgroundAddress = "/img/home-bg.jpg",
-                            InsertTime = new DateTime(2022, 3, 6, 21, 40, 31, 546, DateTimeKind.Local).AddTicks(3771),
+                            InsertTime = new DateTime(2022, 3, 8, 20, 11, 14, 327, DateTimeKind.Local).AddTicks(6011),
                             IsRemoved = false,
                             LanguageId = 1,
                             LogoAddress = "/logo/logo.jpg",
@@ -183,7 +254,7 @@ namespace DataLayer.Migrations
                         {
                             SiteId = 2,
                             BackgroundAddress = "/img/home-bg.jpg",
-                            InsertTime = new DateTime(2022, 3, 6, 21, 40, 31, 548, DateTimeKind.Local).AddTicks(9173),
+                            InsertTime = new DateTime(2022, 3, 8, 20, 11, 14, 352, DateTimeKind.Local).AddTicks(6302),
                             IsRemoved = false,
                             LanguageId = 2,
                             LogoAddress = "/logo/logo.jpg",
@@ -360,18 +431,18 @@ namespace DataLayer.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "49e7cc44-95ee-4b16-9fec-9cba033e0480",
+                            ConcurrencyStamp = "7bb66f00-f7bb-4ee4-9e64-da07024ab0fe",
                             Email = "shekoohianproject@gmail.com",
                             EmailConfirmed = true,
-                            InsertTime = new DateTime(2022, 3, 6, 21, 40, 31, 550, DateTimeKind.Local).AddTicks(7867),
+                            InsertTime = new DateTime(2022, 3, 8, 20, 11, 14, 357, DateTimeKind.Local).AddTicks(5899),
                             IsRemoved = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SHEKOOHIANPROJECT@GMAIL.COM",
                             NormalizedUserName = "SHEKOOHIANPROJECT@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIF4NU/PrEkekAPddQD+zUsyO1zjWu2QBFN2SRaEJmQk0HvzoMnkBd4rBafgVuxhBg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAQ+BR9fyXD/TDRimyYmRbNRKtYEOuhvbZ8aXmNjvKnq4mVccmvwA1YzmJ635wfxYw==",
                             PhoneNumber = "09172638641",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "70e8f0e1-f7e5-4fb7-be0f-bff54e220483",
+                            SecurityStamp = "71c950a0-e144-434a-82ed-9ff76a4a068b",
                             TwoFactorEnabled = false,
                             UserName = "shekoohianproject@gmail.com"
                         });
@@ -511,6 +582,17 @@ namespace DataLayer.Migrations
                     b.Navigation("Language");
                 });
 
+            modelBuilder.Entity("DataLayer.Entities.ResumeAgg.Experience", b =>
+                {
+                    b.HasOne("DataLayer.Entities.Common.Language", "Language")
+                        .WithMany("Experiences")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+                });
+
             modelBuilder.Entity("DataLayer.Entities.SiteAgg.Site", b =>
                 {
                     b.HasOne("DataLayer.Entities.Common.Language", "Language")
@@ -587,6 +669,8 @@ namespace DataLayer.Migrations
             modelBuilder.Entity("DataLayer.Entities.Common.Language", b =>
                 {
                     b.Navigation("AboutMe");
+
+                    b.Navigation("Experiences");
 
                     b.Navigation("Favorites");
 

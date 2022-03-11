@@ -1,11 +1,13 @@
-﻿@model Core.DTOs.About.AboutDto
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model Core.DTOs.About.AboutDto
+@inject IViewLocalizer _localizer
 
 <div class="page pt-about" data-simplebar>
     <section class="container">
 
         <!-- Section Title -->
         <div class="header-page mt-70 mob-mt">
-            <h2>درباره من</h2>
+            <h2>@_localizer["About Me"]</h2>
             <span></span>
         </div>
 
@@ -45,7 +47,7 @@
                         }
 
                         <div class="col-lg-3 col-sm-12 pt-50">
-                            <a href="@Model.AboutMeDto.Resume" class="btn-st">دریافت رزومه</a>
+                            <a href="@Model.AboutMeDto.Resume" class="btn-st">@_localizer["Resume"]</a>
                         </div>
                     </div>
                 </div>
@@ -58,7 +60,7 @@
             <!-- Header Block -->
             <div class="col-md-12">
                 <div class="header-box mb-50">
-                    <h3>علایق من</h3>
+                    <h3>@_localizer["Favorite"]</h3>
                 </div>
             </div>
 

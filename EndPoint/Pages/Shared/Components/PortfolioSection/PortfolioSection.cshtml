@@ -1,9 +1,13 @@
-﻿<div class="page pt-portfolio" data-simplebar>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model List<Core.DTOs.Portfolio.PortfolioDto>
+@inject IViewLocalizer _localizer
+
+<div class="page pt-portfolio" data-simplebar>
     <section class="container">
 
         <!-- Section Title -->
         <div class="header-page mt-70 mob-mt">
-            <h2>نمونه‌کارها</h2>
+            <h2>@_localizer["Resume"]</h2>
             <span></span>
         </div>
 
@@ -11,7 +15,7 @@
         <div class="row mt-100">
             <div class="col-lg-12 col-sm-12 portfolio-filter">
                 <ul>
-                    <li class="active" data-filter="*">پروژه ها</li>
+                    <li class="active" data-filter="*">@_localizer["Projects"]</li>
                 </ul>
             </div>
         </div>
@@ -19,114 +23,22 @@
         <!-- Portfolio Item Row Start -->
         <div class="row portfolio-items mt-100 mb-100">
 
-            <!-- Portfolio Item -->
-            <div class="item col-lg-4 col-sm-6 graphic">
-                <figure>
-                    <img alt="" src="img/portfolio/img-1.jpg">
-                    <figcaption>
-                        <h3>نام پروژه</h3>
-                        <p>گرافیک</p><i class="fas fa-image"></i>
-                        <a class="image-link" href="img/portfolio/img-1.jpg"></a>
-                    </figcaption>
-                </figure>
-            </div>
+           @foreach (var item in Model)
+           {
+               <!-- Portfolio Item -->
+               <div class="item col-lg-4 col-sm-6 graphic">
+                   <figure>
+                       <img alt="" src="@item.Image">
+                       <figcaption>
+                           <h3>@item.Title</h3>
+                           <p>@item.Tag</p><i class="fas fa-image"></i>
+                           <a class="image-link" href="@item.Url"></a>
+                       </figcaption>
+                   </figure>
+               </div>
 
-            <!-- Portfolio Item -->
-            <div class="item col-lg-4 col-sm-6 graphic">
-                <figure>
-                    <img alt="" src="img/portfolio/img-1.jpg">
-                    <figcaption>
-                        <h3>نام پروژه</h3>
-                        <p>گرافیک</p><i class="fas fa-image"></i>
-                        <a class="image-link" href="img/portfolio/img-1.jpg"></a>
-                    </figcaption>
-                </figure>
-            </div>
-
-            <!-- Portfolio Item -->
-            <div class="item col-lg-4 col-sm-6 graphic">
-                <figure>
-                    <img alt="" src="img/portfolio/img-1.jpg">
-                    <figcaption>
-                        <h3>نام پروژه</h3>
-                        <p>گرافیک</p><i class="fas fa-image"></i>
-                        <a class="image-link" href="img/portfolio/img-1.jpg"></a>
-                    </figcaption>
-                </figure>
-            </div>
-
-            <!-- Portfolio Item -->
-            <div class="item col-lg-4 col-sm-6 graphic">
-                <figure>
-                    <img alt="" src="img/portfolio/img-1.jpg">
-                    <figcaption>
-                        <h3>نام پروژه</h3>
-                        <p>گرافیک</p><i class="fas fa-image"></i>
-                        <a class="image-link" href="img/portfolio/img-1.jpg"></a>
-                    </figcaption>
-                </figure>
-            </div>
-
-            <!-- Portfolio Item -->
-            <div class="item col-lg-4 col-sm-6 graphic">
-                <figure>
-                    <img alt="" src="img/portfolio/img-1.jpg">
-                    <figcaption>
-                        <h3>نام پروژه</h3>
-                        <p>گرافیک</p><i class="fas fa-image"></i>
-                        <a class="image-link" href="img/portfolio/img-1.jpg"></a>
-                    </figcaption>
-                </figure>
-            </div>
-
-            <!-- Portfolio Item -->
-            <div class="item col-lg-4 col-sm-6 graphic">
-                <figure>
-                    <img alt="" src="img/portfolio/img-1.jpg">
-                    <figcaption>
-                        <h3>نام پروژه</h3>
-                        <p>گرافیک</p><i class="fas fa-image"></i>
-                        <a class="image-link" href="img/portfolio/img-1.jpg"></a>
-                    </figcaption>
-                </figure>
-            </div>
-
-            <!-- Portfolio Item -->
-            <div class="item col-lg-4 col-sm-6 graphic">
-                <figure>
-                    <img alt="" src="img/portfolio/img-1.jpg">
-                    <figcaption>
-                        <h3>نام پروژه</h3>
-                        <p>گرافیک</p><i class="fas fa-image"></i>
-                        <a class="image-link" href="img/portfolio/img-1.jpg"></a>
-                    </figcaption>
-                </figure>
-            </div>
-            <!-- Portfolio Item -->
-
-            <div class="item col-lg-4 col-sm-6 graphic">
-                <figure>
-                    <img alt="" src="img/portfolio/img-1.jpg">
-                    <figcaption>
-                        <h3>نام پروژه</h3>
-                        <p>گرافیک</p><i class="fas fa-image"></i>
-                        <a class="image-link" href="img/portfolio/img-1.jpg"></a>
-                    </figcaption>
-                </figure>
-            </div>
-
-            <!-- Portfolio Item -->
-            <div class="item col-lg-4 col-sm-6 graphic">
-                <figure>
-                    <img alt="" src="img/portfolio/img-1.jpg">
-                    <figcaption>
-                        <h3>نام پروژه</h3>
-                        <p>گرافیک</p><i class="fas fa-image"></i>
-                        <a class="image-link" href="img/portfolio/img-1.jpg"></a>
-                    </figcaption>
-                </figure>
-            </div>
-            
+           }
+          
 
         </div>
     </section>

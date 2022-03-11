@@ -142,5 +142,11 @@ namespace Core.Services.Impelimentations
 
             await _context.SaveChangesAsync();
         }
+
+        public async Task<string> GetResumePath(string culture)
+        {
+            return (await _context.AboutMe.Include(x => x.Language)
+                .FirstOrDefaultAsync(x => x.Language.LangName == culture)).Resume;
+        }
     }
 }
