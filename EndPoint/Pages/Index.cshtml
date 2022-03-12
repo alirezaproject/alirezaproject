@@ -65,7 +65,8 @@
                         @await Component.InvokeAsync("ResumeSection")
 
                         <!-- Portfolio Section -->
-                        @await Component.InvokeAsync("PortfolioSection")
+                        <partial name="Shared/Partials/_Portfolio" model="@Model.PortfolioDtos"></partial>
+                        
 
                         <!-- Contact Section -->
                         @await Component.InvokeAsync("ContactSection")

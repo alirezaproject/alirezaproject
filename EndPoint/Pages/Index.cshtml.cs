@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.DTOs.Contact;
+using Core.DTOs.Portfolio;
 using Core.DTOs.Site;
 using Core.Services.Interfaces;
 using Microsoft.AspNetCore.Hosting;
@@ -22,22 +23,24 @@ namespace EndPoint.Pages
 
         private readonly ISiteService _siteService;
         private readonly IContactService _contactService;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-        public IndexModel(ISiteService siteService, IContactService contactService, IWebHostEnvironment hostEnvironment)
+        private readonly IPortfolioService _portfolioService;
+
+        public IndexModel(ISiteService siteService, IContactService contactService, IPortfolioService portfolioService)
         {
             _siteService = siteService;
             _contactService = contactService;
-            _webHostEnvironment = hostEnvironment;
+            _portfolioService = portfolioService;
         }
 
         #endregion
 
         public MainDto Input { get; set; }
-
+        public List<PortfolioDto> PortfolioDtos { get; set; }
 
         public async Task OnGet()
         {
             Input = await _siteService.GetMainData(CultureInfo.CurrentCulture.Name);
+            PortfolioDtos = await _portfolioService.GetAllPortfolioAsync();
         }
 
         public IActionResult OnGetChangeCulture(string culture)
