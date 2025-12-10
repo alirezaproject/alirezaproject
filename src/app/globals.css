@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@plugin "daisyui" {
+  themes: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "mytheme";
+  default: true;
+  /* set as default */
+  prefersdark: false;
+  /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: light;
+  /* color of browser-provided UI */
+  --color-primary: oklch(0.2291 0.0115 285.46);
+  --color-accent: oklch(69% 0.17 162.48);
+  --color-base-content: oklch(100% 0 0);
+}
+
+@font-face {
+  font-family: 'Vazir';
+  src: url('/fonts/Vazir.woff2') format('woff2'),
+    url('/fonts/Vazir.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+@layer utilities {
+  .font-primary {
+    font-family: 'Vazir', sans-serif;
+
+  }
+
+  .text-h1 {
+    @apply text-[48px] lg:text-[80px] leading-[1.1] font-semibold;
+  }
+
+  .text-h2 {
+    @apply text-[36px] lg:text-[48px] leading-[1.1] font-semibold;
+  }
+
+  .text-h3 {
+    @apply text-[20px] lg:text-[24px] leading-[1.1] font-semibold;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1px #ffffff;
+  }
+
+
+  .text-outline-hover {
+    -webkit-text-stroke: 1px #00ff99;
+  }
+}
+
+.text-outline-hover {
+  -webkit-text-stroke: 1px #00ff99;
+}
+
